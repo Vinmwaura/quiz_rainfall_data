@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Rainfall data input
+{% endblock %}
+
+{%block content%}
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{form.as_p}}
+		<input type="Submit" value= "Add"/>
+	</form>
+{% endblock %}

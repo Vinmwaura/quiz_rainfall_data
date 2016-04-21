@@ -35,4 +35,4 @@ class Rainfall(models.Model):
     date = models.DateField(validators=[validate_date])
 
     def __str__(self):
-        return str(self.region) + " " + str(self.date)
+        return str(self.region) + "-" + str(self.date)

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <ul>
+            <li><a href="{%url 'rainfall:homepage' %}">Home</a></li>
+            <li><a href="{%url 'rainfall:records' %}">Record data</a></li>
+            <li><a href="{%url 'rainfall:graph' %}">Display graph</a></li>
+        </ul>
+        <title>{% block title %}{% endblock%}</title>
+
+    </head>
+
+    <body>
+    {% block content %}{% endblock%}
+    </body>
+</html>
