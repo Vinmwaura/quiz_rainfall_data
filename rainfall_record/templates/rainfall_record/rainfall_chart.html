@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
+{% load bootstrap3 %}
 
 {% block title %}
 	Rainfall chart
 {% endblock %}
 
 {%block content%}
-	<form action="" method="POST">
+	{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+	<form action="" method="POST" class="form">
 		{% csrf_token %}
-		{{form.as_p}}
-		<input type="Submit" value= "Show"/>
+		{% bootstrap_form form layout='inline' %}
+	    {% buttons %}
+		
+		<button type="submit" class="btn btn-primary">
+	      {% bootstrap_icon "star" %} Show
+	    </button>
+	    {% endbuttons %}
 	</form>
 {% endblock %}
