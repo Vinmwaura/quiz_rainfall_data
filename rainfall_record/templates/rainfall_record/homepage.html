@@ -1,4 +1,13 @@
 {% extends 'base.html' %}
+{% load bootstrap3 %}
+
 {% block title %}
 	Homepage
+{% endblock %}
+
+{% block content %}
+	<ul>
+		<li><a href="{%url 'rainfall:records' %}">Add rainfall data</a></li>
+		<li><a href="{%url 'rainfall:graph' %}">Plot records in chart</a></li>
+	</ul>
 {% endblock %}

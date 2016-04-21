@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^rainfall/', include('rainfall_record.urls', namespace = "rainfall")),
+    url(r'^rainfall/', include('rainfall_record.urls', namespace="rainfall")),
 ]
