@@ -13,12 +13,14 @@ from django.http import HttpResponse
 # Create your views here.
 
 
+# View for homepage
 def home(request):
     return render(request, 'rainfall_record/homepage.html', {})
 
 
+# View for displayig graph, uses matplotlib to generate graph
+#and pillow to display it
 def display_graph(request, year):
-    print(year)
     regions_object = Region.objects.all()
     amount_total = []
     region_names = []
@@ -50,14 +52,13 @@ def display_graph(request, year):
         "RGB",
         canvas.get_width_height(),
         canvas.tostring_rgb())
-    # graphIMG.save(buffer, "PNG")
+
     pylab.close()
     response = HttpResponse(content_type="image/png")
     graphIMG.save(response, "PNG")
     return response
-    # return HttpResponse(buffer.getvalue())
 
-
+# View for display form for inputting rainfall data
 def get_details(request):
     if request.method == 'POST':
         form = RainfallForm(request.POST)
@@ -71,7 +72,8 @@ def get_details(request):
         'rainfall_record/rainfall_form.html',
         {'form': form})
 
-
+# View containg form for selecting year to be used in displaying
+# graph
 def get_records(request):
     if request.method == 'POST':
         form = RecordForm(request.POST)

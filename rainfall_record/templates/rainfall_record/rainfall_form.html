@@ -4,9 +4,8 @@
 {% block title %}
 	Rainfall data input
 {% endblock %}
-
-{%block content%}
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{%block content%}
 	<form action="" method="POST">
 		{% csrf_token %}
 		{% bootstrap_form form layout='inline' %}
