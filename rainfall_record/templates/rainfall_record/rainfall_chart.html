@@ -7,7 +7,7 @@
 
 {%block content%}
 	{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-	<form action="" method="POST" class="form">
+	<form action="{%url 'rainfall:graph'%}" method="POST" class="form">
 		{% csrf_token %}
 		{% bootstrap_form form layout='horizontal' %}
 	    {% buttons %}
